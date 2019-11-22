@@ -22,7 +22,7 @@ import static android.Manifest.permission.*;
 public class MainActivity extends AppCompatActivity {
 
     // Replace below with your own subscription key
-    private static String speechSubscriptionKey = "a5289b47e09c4e1887d5b7c1283d561b";
+    private static String speechSubscriptionKey = "9e84d980bcc24e1b889685e86e8e5c4b";
     // Replace below with your own service region (e.g., "westus").
     private static String serviceRegion = "westus";
 
