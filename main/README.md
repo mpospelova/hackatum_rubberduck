@@ -1,5 +1,0 @@
-
-HelloWorld!
-ByeWorld!
-ByeWorld!
-ByeWorld!

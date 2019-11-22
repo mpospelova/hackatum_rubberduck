@@ -1,15 +1,12 @@
 import java.io.*;
-public class StringMaintenace {
+class StringMaintenace {
 
     public static void main(String[] args) throws IOException {
         String filepath = "/home/masha/development/hackatum/hackatum_rubberduck/README.md";
         File readme= new File(filepath);
         String str = "\nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
         writeToReadme(readme, str);
-
-
     }
-
 
     private static void writeToReadme(File readme, String data)  {
         OutputStream outputStream = null;
