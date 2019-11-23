@@ -2,12 +2,15 @@ package ByteTheDust.Rubberdocs;
 import java.util.HashMap;
 import java.io.*;
 import java.util.Scanner;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class FileWriter {	
 	//Implements several functions to write Annotations passed by manager to Documentation File / directly to SourceFile
-		
-	private String sourceFilepath;
+
 	private File readme;
+	private File source;
 	
 	//Dummy method, just updates Docu-File
 	public FileWriter(String docFilePath) {
@@ -16,7 +19,7 @@ public class FileWriter {
 	
 	//Secondary Constructor, also gets Path of parsed File
 	public FileWriter(String docFilePath, String sourceFilePath) {
-		this.sourceFilepath = sourceFilePath;
+		this.source = new File(sourceFilePath);
 		this.readme = new File(docFilePath);
 	}
 	
@@ -41,12 +44,18 @@ public class FileWriter {
 		String docuString = "";
 
 		//liest das sourcefile als String ein
-		File sourcefile = new File(sourceFilepath);
 		try {
-			docuString = new Scanner(sourcefile).useDelimiter("\\Z").next();
+			docuString = new Scanner(source).useDelimiter("\\Z").next();
 		}
 		catch (java.io.FileNotFoundException e){
 			e.printStackTrace();
+		}
+
+
+		String[] linesX = docuString.split("\\r\\n");
+		ArrayList<String> lines = new ArrayList<>();
+		for (int index = 0; index < linesX.length; index++){
+			lines.add(linesX[index]);
 		}
 
 		//for alle Keywords:
@@ -54,14 +63,52 @@ public class FileWriter {
 		//2.
 
 
+		for (Object name: input.keySet()){
+			String key = name.toString();
+			key.trim();
 
+			System.out.print("Key wird bearbeitet: " + key);
 
+			for (int index = 0; index < lines.size(); index++){
+				System.out.println("Checking: " + lines.get(index));
+				System.out.println("Checking for key: " + key);
 
+				//Falls der Key gematched wird, checke, ob es bereits einen Kommentar gibt.
+				//Gehe solang zurück , bis die Kommentarsektion endet, kopiere beide teile des Arrays (vor und nach der Kommentarsektion) ersetze die Kommentarsektion durch neue Kommentare.
+				if (lines.get(index).contains(key)){
+					System.out.println("Key gefunden: " + lines.get(index));
 
+					/*int iterator = 1;
+					if(!lines.get(index-iterator).equals("")){
+						iterator = 0;
+					}
+					else {
+						while (lines.get(index - iterator).equals("\\s+/.*")) {
+							System.out.println("Removing old Comment " + lines.get(index-iterator));
+							iterator++;
+						}
+					}*/
+
+					//TODO implement Zeilenumbrüche bei langen Comments
+					String annotation = "//"+input.get(name).toString();
+					lines.add(index, annotation);
+					break;
+				}
+			}
+		}
+
+		String ausgabeString = "";
+		for (int index = 0; index < lines.size(); index++){
+			ausgabeString = ausgabeString + lines.get(index) + "\r\n";
+		}
+
+		System.out.println("String bevor verarbeitung: ");
 		System.out.println(docuString);
+		System.out.println("String nach verarbeitung: ");
+		System.out.println(ausgabeString);
+		System.out.println("test");
 
-
-
+		writeToReadme(source, ausgabeString);
 	}
 	
 	private static void writeToReadme(File readme, String data)  {
@@ -92,8 +139,8 @@ public class FileWriter {
 	public static void main(String[] args) throws IOException {
 		
 		HashMap test = new HashMap();
-		test.put("Class ABC", "Annotation1");
-		test.put("public String bar()", "This Method does Foo");
+		test.put("class TestFile", "Annotation1");
+		test.put("public String foo()", "This Method does Foo");
 		String docFilePath = ".readme.md";
 		String srcFilePath = "C:\\Users\\lh\\IdeaProjects\\hackatum_rubberduck\\ByteTheDust\\src\\ByteTheDust\\Rubberdocs\\TestFile.java";
 
