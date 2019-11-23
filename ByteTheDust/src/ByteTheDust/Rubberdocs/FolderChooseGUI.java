@@ -13,7 +13,7 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 
-public class FolderChooseGUI extends Application implements EventHandler<ActionEvent> {
+public class FolderChooseGUI extends Application {
     private Stage stage;
     private Scene scene;
     private String directoryPath;
@@ -48,9 +48,6 @@ public class FolderChooseGUI extends Application implements EventHandler<ActionE
         final DirectoryChooser directoryChooser = new DirectoryChooser();
         directoryChooser.setInitialDirectory(directoryChooser.getInitialDirectory());
         final File selectedDirectory = directoryChooser.showDialog(stage);
-        if (selectedDirectory != null) {
-            selectedDirectory.getAbsolutePath();
-        }
         return selectedDirectory;
     }
 
@@ -59,10 +56,15 @@ public class FolderChooseGUI extends Application implements EventHandler<ActionE
     public void onDuckImageClicked(){
         System.out.println("Duck image clicked!");
         File dir = requestDirectory(stage);
-        System.out.println(dir.toString());
-
-        if(dir != null)
-            ;//TODO: switch scene to filechooseGUI
+        if(dir != null) {
+            System.out.println("FolderChooseGUI:" + dir.toString());
+            if(!FileChooseGUI.getJavaFilesInFolder(dir.toString()).isEmpty()){
+                //TODO: switch scene to filechooseGUI
+            }
+            else{
+                System.out.println("no java files found");
+            }
+        }
     }
 
     @Override
@@ -80,9 +82,5 @@ public class FolderChooseGUI extends Application implements EventHandler<ActionE
         stage.setTitle("RubberDocs!");
         stage.setScene(scene);
         stage.show();
-    }
-
-    @Override
-    public void handle(ActionEvent event) {
     }
 }
