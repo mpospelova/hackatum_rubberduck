@@ -1,24 +1,15 @@
 package ByteTheDust.Rubberdocs;
 
 
-//Annotation1
-//Annotation1
-//Annotation1
-//Annotation1
+//Annotation1, (belong to class 1)
 public class TestFile {
 
 
-//This Method does Foo
-//This Method does Foo
-//This Method does Foo
-//This Method does Foo
-//This method does nothing and takes no parameters.
-//Disabled.
+	//Hello Consti, This Method does Foo
 	public String foo() {
 		return "Bar";
 	}
 
-//It's weird.
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

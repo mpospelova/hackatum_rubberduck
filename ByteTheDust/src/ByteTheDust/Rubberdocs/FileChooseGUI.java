@@ -25,14 +25,14 @@ public class FileChooseGUI extends Application implements EventHandler<ActionEve
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(new URL("file:///C:/data/hello-world.fxml"));
-        VBox vbox = loader.<VBox>load();
+    public void start(Stage stage) throws Exception {
+        //Parent root = FXMLLoader.load(getClass().getResource("FileChooseGUI.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FileChooseGUI.fxml"));
+        Scene scene = new Scene(root, 300, 275);
 
-        Scene scene = new Scene(vbox);
-        primaryStage.setScene(scene);
-        primaryStage.show();
+        stage.setTitle("FXML Welcome");
+        stage.setScene(scene);
+        stage.show();
     }
 
     @Override
