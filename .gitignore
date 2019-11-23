@@ -1,7 +1,8 @@
 #never push .idea files (intellij)
-./idea/
+.idea/
+ByteTheDust/.idea/
 #never push .vscode (VS code)
-./vscode/
+.vscode/
 #also not the .iml stuff (intellij i think)
 *.iml
 *.class
