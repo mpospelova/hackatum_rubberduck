@@ -76,6 +76,20 @@ public class FileWriter {
 				//Falls der Key gematched wird, checke, ob es bereits einen Kommentar gibt.
 				//Gehe solang zurück , bis die Kommentarsektion endet, kopiere beide teile des Arrays (vor und nach der Kommentarsektion) ersetze die Kommentarsektion durch neue Kommentare.
 				if (lines.get(index).contains(key)){
+
+					String data = lines.get(index);
+					String leadingWhitespace = "";
+
+					int index0 = 0;
+					int index1 = 1;
+
+					while (data.substring(index0, index1).matches("\\s+")){
+						index1++;
+					}
+					leadingWhitespace = data.substring(index0,index1-1);
+
+
+
 					System.out.println("Key gefunden: " + lines.get(index));
 
 					/*int iterator = 1;
@@ -90,7 +104,7 @@ public class FileWriter {
 					}*/
 
 					//TODO implement Zeilenumbrüche bei langen Comments
-					String annotation = "//"+input.get(name).toString();
+					String annotation = leadingWhitespace + "//" + input.get(name).toString();
 					lines.add(index, annotation);
 					break;
 				}
@@ -139,8 +153,8 @@ public class FileWriter {
 	public static void main(String[] args) throws IOException {
 		
 		HashMap test = new HashMap();
-		test.put("class TestFile", "Annotation1");
-		test.put("public String foo()", "This Method does Foo");
+		test.put("class TestFile", "Annotation1, (belong to class 1)");
+		test.put("public String foo()", "Hello Consti, This Method does Foo");
 		String docFilePath = ".readme.md";
 		String srcFilePath = "C:\\Users\\lh\\IdeaProjects\\hackatum_rubberduck\\ByteTheDust\\src\\ByteTheDust\\Rubberdocs\\TestFile.java";
 
