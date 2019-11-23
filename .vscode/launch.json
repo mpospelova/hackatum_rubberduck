@@ -1,0 +1,48 @@
+{
+  // Verwendet IntelliSense zum Ermitteln möglicher Attribute.
+  // Zeigen Sie auf vorhandene Attribute, um die zugehörigen Beschreibungen anzuzeigen.
+  // Weitere Informationen finden Sie unter https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Debug (Launch) - Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch)-Main<quickstart>",
+      "request": "launch",
+      "mainClass": "speechsdk.quickstart.Main",
+      "projectName": "quickstart"
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch)-Manager<quickstart>",
+      "request": "launch",
+      "mainClass": "speechsdk.quickstart.Manager",
+      "projectName": "quickstart"
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch)-SpeechToText<quickstart>",
+      "request": "launch",
+      "mainClass": "speechsdk.quickstart.SpeechToText",
+      "projectName": "quickstart"
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch)-TestFile<quickstart>",
+      "request": "launch",
+      "mainClass": "speechsdk.quickstart.TestFile",
+      "projectName": "quickstart"
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch)-StringMaintenace",
+      "request": "launch",
+      "mainClass": "StringMaintenace"
+    }
+  ]
+}
