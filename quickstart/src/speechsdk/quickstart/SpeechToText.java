@@ -13,8 +13,8 @@ public class SpeechToText {
 
 	//semaphor: Default 0, if set to 1 the recording will stop
 	public boolean stop;
-	private static String speechSubscriptionKey;
-	private static String serviceRegion;
+	private static String speechSubscriptionKey = "a5289b47e09c4e1887d5b7c1283d561b";
+	private static String serviceRegion = "westus";
 
 	public SpeechToText() {
         // Replace below with your own subscription key
