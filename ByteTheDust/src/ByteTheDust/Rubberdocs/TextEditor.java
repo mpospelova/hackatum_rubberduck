@@ -5,23 +5,27 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-
+import javafx.scene.control.*;
 import java.io.IOException;
 
 
-public class TextEditor extends Application{
-    Parent root;
-    Scene scene;
-
+public class TextEditor extends Application {
     public static void main(String[] args) {
         launch(args);
     }
 
+
     @Override
     public void start(Stage stage) throws IOException {
-        root = FXMLLoader.load(getClass().getResource("SceneRecordText.fxml"));
-        scene = new Scene(root, 300, 275);
+        Parent root = FXMLLoader.load(getClass().getResource("SceneRecordText.fxml"));
+
+        root.getChildrenUnmodifiable().get(0).setAccessibleText("AAAA");
+
+//        System.out.println(root.getChildrenUnmodifiable().get(0));
+
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
@@ -37,6 +41,10 @@ public class TextEditor extends Application{
 
     @FXML
     public void onSave() {
+    }
+
+    @FXML
+    protected void initialize() {
     }
 
 
