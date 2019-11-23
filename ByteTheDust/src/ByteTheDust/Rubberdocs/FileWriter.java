@@ -36,6 +36,12 @@ public class FileWriter {
 	
 	//Besserer Ansatz, schreibt Annotations direkt in's source File.
 	public void updateSourceFile(HashMap input) {
+		String docuString = String content = new Scanner(new File("filename")).useDelimiter("\\Z").next();
+
+
+
+
+
 	}
 	
 	private static void writeToReadme(File readme, String data)  {
@@ -66,8 +72,8 @@ public class FileWriter {
 	public static void main(String[] args) throws IOException {
 		
 		HashMap test = new HashMap();
-		test.put("Class Main", "Annotation1");
-		test.put("public String foo()", "This Method does Bar");
+		test.put("Class ABC", "Annotation1");
+		test.put("public String bar()", "This Method does Foo");
 		String docFilePath = ".readme.md";
 		
 		FileWriter fw = new FileWriter(docFilePath, "");
