@@ -23,6 +23,7 @@ public class FileChooseGUI extends Application implements EventHandler<ActionEve
         //SpeechToText speechToText=new SpeechToText();
         //speechToText.getUserInput();
     }
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         FXMLLoader loader = new FXMLLoader();
@@ -33,6 +34,7 @@ public class FileChooseGUI extends Application implements EventHandler<ActionEve
         primaryStage.setScene(scene);
         primaryStage.show();
     }
+
     @Override
     public void handle(ActionEvent event) {
     }
