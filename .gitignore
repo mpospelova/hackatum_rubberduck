@@ -6,3 +6,4 @@ ByteTheDust/.idea/
 #also not the .iml stuff (intellij i think)
 *.iml
 *.class
+*/target/*

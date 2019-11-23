@@ -37,15 +37,6 @@ public class HelloFX extends Application implements EventHandler<ActionEvent>, I
         //speechToText.getUserInput();
     }
 
-    public File requestDirectory(final Stage stage){
-        final DirectoryChooser directoryChooser = new DirectoryChooser();
-        final File selectedDirectory = directoryChooser.showDialog(stage);
-        if (selectedDirectory != null) {
-            selectedDirectory.getAbsolutePath();
-        }
-        return selectedDirectory;
-    }
-
     @Override
     public void start(Stage stage) {
         stage.setTitle("ByteTheDust Rubberdocs");

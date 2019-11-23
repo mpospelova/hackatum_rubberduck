@@ -8,7 +8,7 @@ public class Manager {
 
 
 	//private Parser parser
-	//private FileChooseGUI gui
+	//private FolderChooseGUI gui
 	private SpeechToText speechToText;
 	//private TextHandler (name?)
 	private final String dummyFilePath = "test.java";
