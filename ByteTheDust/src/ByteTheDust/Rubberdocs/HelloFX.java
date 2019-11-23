@@ -13,6 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class HelloFX extends Application implements EventHandler<ActionEvent> {
@@ -31,6 +32,14 @@ public class HelloFX extends Application implements EventHandler<ActionEvent> {
     public void start(Stage stage) {
         stage.setTitle("ByteTheDust Rubberdocs");
 
+        //Parse the file from FileParser
+        FileParser parser=new FileParser();
+        final List<String> tmp=parser.parseSyntax("../ExampleCodeForRubberdoc/ExampleClass.java");
+
+        for(final String s:tmp){
+            System.out.println("Parser returned:"+s);
+        }
+        keywords.addAll(tmp);
         keywords.add("Keyword 1 class X");
         keywords.add("Keyword 2 function Y");
 
