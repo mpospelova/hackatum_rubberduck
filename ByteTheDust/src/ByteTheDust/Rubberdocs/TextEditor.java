@@ -5,10 +5,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-
 
 public class TextEditor extends Application{
     Parent root;
@@ -21,7 +21,7 @@ public class TextEditor extends Application{
     @Override
     public void start(Stage stage) throws IOException {
         root = FXMLLoader.load(getClass().getResource("SceneRecordText.fxml"));
-        scene = new Scene(root, 300, 275);
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }
@@ -39,5 +39,15 @@ public class TextEditor extends Application{
     public void onSave() {
     }
 
+    @FXML
+    public TextField myTextArea;
 
+    public void setText(String text){
+
+    }
+
+    @FXML
+    public void initialize() {
+        myTextArea.setText("AAAAAAA");
+    }
 }
