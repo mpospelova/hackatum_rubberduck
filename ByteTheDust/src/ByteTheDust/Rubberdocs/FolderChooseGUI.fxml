@@ -3,26 +3,27 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
-fx:controller="ByteTheDust.Rubberdocs.FolderChooseGUI">
+<VBox prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: DeepSkyBlue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ByteTheDust.Rubberdocs.FolderChooseGUI">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
-      <children>
-        <Label alignment="CENTER" layoutX="215.0" layoutY="442.0" style="&#10;" text="Tap to tell me something about your program!" textAlignment="CENTER" textFill="#9f9f9f" wrapText="false">
-          <font>
-            <Font size="18.0" />
-          </font>
-        </Label>
-            <ImageView fitHeight="230.0" fitWidth="232.0" layoutX="284.0" layoutY="186.0" onMouseClicked="#onDuckImageClicked" pickOnBounds="true" AnchorPane.bottomAnchor="185.60000000000002" AnchorPane.leftAnchor="284.0" AnchorPane.rightAnchor="284.0" AnchorPane.topAnchor="186.0">
+      <BorderPane prefHeight="800.0" prefWidth="600.0">
+         <center>
+            <ImageView fitHeight="427.0" fitWidth="419.0" onMouseClicked="#onDuckImageClicked" pickOnBounds="true" BorderPane.alignment="CENTER">
                <image>
                   <Image url="@rubber-duck.png" />
                </image>
             </ImageView>
-      </children>
-    </AnchorPane>
+         </center>
+         <bottom>
+            <Label alignment="CENTER" prefHeight="52.0" prefWidth="370.0" style="&#10;" text="Tap to tell me something about your program!" textAlignment="CENTER" textFill="#3f4939" wrapText="false" BorderPane.alignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </bottom>
+      </BorderPane>
   </children>
 </VBox>
