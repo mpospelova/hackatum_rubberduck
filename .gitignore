@@ -1,0 +1,7 @@
+#never push .idea files (intellij)
+./idea/
+#never push .vscode (VS code)
+./vscode/
+#also not the .iml stuff (intellij i think)
+*.iml
+*.class
