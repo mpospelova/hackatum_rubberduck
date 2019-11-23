@@ -1,5 +1,6 @@
 package ByteTheDust.Rubberdocs;
 
+import com.microsoft.cognitiveservices.speech.SpeechRecognizer;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -20,6 +21,9 @@ public class HelloFX extends Application implements EventHandler<ActionEvent> {
 
     private final ArrayList<String> keywords=new ArrayList<>();
     private final ArrayList<Button> buttons=new ArrayList<>();
+    private Button selectedButton;
+
+    private final SpeechToText speechToText=new SpeechToText();
 
     public static void main(String[] args) {
         Application.launch();
@@ -67,8 +71,11 @@ public class HelloFX extends Application implements EventHandler<ActionEvent> {
 
     @Override
     public void handle(ActionEvent event) {
-        if(event.getSource()==buttons.get(0)){
-            System.out.println("OOH touch me right there");
+        //if(event.getSource()==buttons.get(0)){
+        //    System.out.println("OOH touch me right there");
+        //}
+        if(selectedButton==null){
+            //Not listening yet, start listening for specific button (e.g. specific
         }
     }
 }
