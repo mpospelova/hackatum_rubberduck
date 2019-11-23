@@ -16,7 +16,7 @@ public class FileWriter {
 	
 	//Secondary Constructor, also gets Path of parsed File
 	public FileWriter(String docFilePath, String sourceFilePath) {
-		this.sourceFilepath = sourceFilepath;
+		this.sourceFilepath = sourceFilePath;
 		this.readme = new File(docFilePath);
 	}
 	
@@ -36,13 +36,29 @@ public class FileWriter {
 	}
 
 
-
 	//Besserer Ansatz, schreibt Annotations direkt in's source File.
 	public void updateSourceFile(HashMap input) {
+		String docuString = "";
 
-		sourcefile = new File(sourceFilepath);
-		String docuString = new Scanner(sourcefile).useDelimiter("\\Z").next();
-		System.out.println(docustring);
+		//liest das sourcefile als String ein
+		File sourcefile = new File(sourceFilepath);
+		try {
+			docuString = new Scanner(sourcefile).useDelimiter("\\Z").next();
+		}
+		catch (java.io.FileNotFoundException e){
+			e.printStackTrace();
+		}
+
+		//for alle Keywords:
+		//1. Suche Keyword mit regex
+		//2.
+
+
+
+
+
+
+		System.out.println(docuString);
 
 
 
@@ -79,10 +95,11 @@ public class FileWriter {
 		test.put("Class ABC", "Annotation1");
 		test.put("public String bar()", "This Method does Foo");
 		String docFilePath = ".readme.md";
-		
-		FileWriter fw = new FileWriter(docFilePath, "");
-		fw.updateDocumentationFile(test);
-		
+		String srcFilePath = "C:\\Users\\lh\\IdeaProjects\\hackatum_rubberduck\\ByteTheDust\\src\\ByteTheDust\\Rubberdocs\\TestFile.java";
+
+		FileWriter fw = new FileWriter(docFilePath, srcFilePath);
+		fw.updateSourceFile(test);
+
 				
         //String filepath = "/home/masha/development/hackatum/hackatum_rubberduck/README.md";
         //File readme= new File(filepath);
