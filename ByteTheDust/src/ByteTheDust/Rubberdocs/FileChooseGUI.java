@@ -3,6 +3,8 @@ package ByteTheDust.Rubberdocs;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.ColumnConstraints;
@@ -14,27 +16,19 @@ import java.util.List;
 
 public class FileChooseGUI extends Application implements EventHandler<ActionEvent> {
 
+    public static void main(String[] args) {
+        launch(args);
+        //SpeechToText speechToText=new SpeechToText();
+        //speechToText.getUserInput();
+    }
+
     @Override
-    public void start(Stage stage) {
-        stage.setTitle("RubberDoc");
+    public void start(Stage stage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("FileChooseGUI.fxml"));
 
-        //Parse the file from FileParser
-        FileParser parser=new FileParser();
-        final List<String> tmp=parser.parseSyntax("../ExampleCodeForRubberdoc/ExampleClass.java");
+        Scene scene = new Scene(root, 600, 900);
 
-        for(final String s:tmp){
-            System.out.println("Parser returned:"+s);
-        }
-
-        //StackPane pane=new StackPane();
-        GridPane pane=new GridPane();
-        ColumnConstraints colConst = new ColumnConstraints();
-        colConst.setPercentWidth(100.0f);
-        pane.getColumnConstraints().add(colConst);
-
-
-
-        Scene scene = new Scene(pane, 640, 480);
+        stage.setTitle("FXML Welcome");
         stage.setScene(scene);
         stage.show();
     }
