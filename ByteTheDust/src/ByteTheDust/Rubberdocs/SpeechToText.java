@@ -1,5 +1,7 @@
 package ByteTheDust.Rubberdocs;
 
+import java.util.Scanner;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 import com.microsoft.cognitiveservices.speech.*;
 
@@ -10,69 +12,88 @@ public class SpeechToText {
 	//This class implements the Azure API in an object oriented way,
 	//adds functionality to "record until manually stopped"
 
-
-	//semaphor: Default 0, if set to 1 the recording will stop
-	public boolean stop;
+    // Replace below with your own subscription key
 	private static String speechSubscriptionKey = "a5289b47e09c4e1887d5b7c1283d561b";
+    // Replace below with your own service region (e.g., "westus").
 	private static String serviceRegion = "westus";
 
+	private StringBuffer recognizedText;
+
+	private SpeechRecognizer recognizer;
+
 	public SpeechToText() {
-        // Replace below with your own subscription key
-		speechSubscriptionKey = "a5289b47e09c4e1887d5b7c1283d561b";
-        // Replace below with your own service region (e.g., "westus").
-		serviceRegion = "westus";
-		this.stop = false;
-	}
+	    this.recognizedText = new StringBuffer();
+
+        SpeechConfig config = SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
+        assert(config != null);
+
+        recognizer = new SpeechRecognizer(config);
+        assert(recognizer != null);
 
 
-	public String getUserInput() {
-		String ausgabe = "";
+        // Subscribes to events.
+        recognizer.recognizing.addEventListener((s, e) -> {
+            System.out.println("RECOGNIZING: Text=" + e.getResult().getText());
+        });
 
-        try {
-            int exitCode = 1;
-            SpeechConfig config = SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
-            assert(config != null);
-
-            SpeechRecognizer reco = new SpeechRecognizer(config);
-            assert(reco != null);
-
-            System.out.println("Say something...");
-
-            Future<SpeechRecognitionResult> task = reco.recognizeOnceAsync();
-            assert(task != null);
-
-            SpeechRecognitionResult result = task.get();
-            assert(result != null);
-
-            if (result.getReason() == ResultReason.RecognizedSpeech) {
-                System.out.println("We recognized: " + result.getText());
-                exitCode = 0;
+        recognizer.recognized.addEventListener((s, e) -> {
+            if (e.getResult().getReason() == ResultReason.RecognizedSpeech) {
+                System.out.println("RECOGNIZED: Text=" + e.getResult().getText());
+                recognizedText.append(e.getResult().getText());
             }
-            else if (result.getReason() == ResultReason.NoMatch) {
+            else if (e.getResult().getReason() == ResultReason.NoMatch) {
                 System.out.println("NOMATCH: Speech could not be recognized.");
             }
-            else if (result.getReason() == ResultReason.Canceled) {
-                CancellationDetails cancellation = CancellationDetails.fromResult(result);
-                System.out.println("CANCELED: Reason=" + cancellation.getReason());
+        });
 
-                if (cancellation.getReason() == CancellationReason.Error) {
-                    System.out.println("CANCELED: ErrorCode=" + cancellation.getErrorCode());
-                    System.out.println("CANCELED: ErrorDetails=" + cancellation.getErrorDetails());
-                    System.out.println("CANCELED: Did you update the subscription info?");
-                }
+        recognizer.canceled.addEventListener((s, e) -> {
+            System.out.println("CANCELED: Reason=" + e.getReason());
+
+            if (e.getReason() == CancellationReason.Error) {
+                System.out.println("CANCELED: ErrorCode=" + e.getErrorCode());
+                System.out.println("CANCELED: ErrorDetails=" + e.getErrorDetails());
+                System.out.println("CANCELED: Did you update the subscription info?");
             }
+        });
 
-            reco.close();
+        recognizer.sessionStarted.addEventListener((s, e) -> {
+            System.out.println("\n    Session started event.");
+        });
 
-            System.exit(exitCode);
-        } catch (Exception ex) {
-            System.out.println("Unexpected exception: " + ex.getMessage());
-
-            assert(false);
-            System.exit(1);
-        }
-		return ausgabe;
+        recognizer.sessionStopped.addEventListener((s, e) -> {
+            System.out.println("\n    Session stopped event.");
+        });
 	}
+
+	public void startRecognizer(){
+	    this.recognizedText = new StringBuffer();
+
+        // Starts continuous recognition. Uses stopContinuousRecognitionAsync() to stop recognition.
+        System.out.println("starting recognition...");
+        try {
+            recognizer.startContinuousRecognitionAsync().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public String stopRecognizer(){
+        try {
+            recognizer.stopContinuousRecognitionAsync().get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        return recognizedText.toString();
+    }
+
+    public String getRecognizedText(){
+	    return this.recognizedText.toString();
+    }
 
     /**
      * @param args Arguments are ignored in this sample.
@@ -80,6 +101,13 @@ public class SpeechToText {
 	//
     public static void main(String[] args) {
         SpeechToText speechToText = new SpeechToText();
-        speechToText.getUserInput();
+
+        speechToText.startRecognizer();
+
+        System.out.println("Press any key to stop");
+        new Scanner(System.in).nextLine();
+
+        speechToText.stopRecognizer();
+        System.out.println("Total text: " + speechToText.getRecognizedText());
     }
 }

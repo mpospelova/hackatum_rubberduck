@@ -1,5 +1,7 @@
 package ByteTheDust.Rubberdocs;
 
+import java.util.Scanner;
+
 public class Manager {
 	//@author lorenz3001
 	//this class implements the logic behind the program, while the other classes handle input/Output
@@ -29,7 +31,14 @@ public class Manager {
 		//keyword = GUI.getUserInputKeyword()
 
 		//5. What is you documentation
-		String text = speechToText.getUserInput();
+		speechToText = new SpeechToText();
+
+		speechToText.startRecognizer();
+
+		System.out.println("Press any key to stop");
+		new Scanner(System.in).nextLine();
+
+		speechToText.stopRecognizer();
 
 		//6. Write Documentation to corresponding location in Readme
 		//textHandler.write({keyword:text})
