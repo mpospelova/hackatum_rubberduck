@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jmods">
+    <CLASSES />
+    <JAVADOC />
+    <SOURCES>
+      <root url="file:///usr/lib/jvm/java-13-openjdk/jmods" />
+    </SOURCES>
+  </library>
+</component>

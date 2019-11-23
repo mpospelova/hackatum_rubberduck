@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="java-13-openjdk">
+    <CLASSES />
+    <JAVADOC>
+      <root url="file:///usr/lib/jvm/java-13-openjdk" />
+    </JAVADOC>
+    <SOURCES />
+  </library>
+</component>
