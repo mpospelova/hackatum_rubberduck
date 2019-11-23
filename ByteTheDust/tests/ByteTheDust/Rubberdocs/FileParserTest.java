@@ -1,4 +1,4 @@
-package speechsdk.quickstart;
+package ByteTheDust.Rubberdocs;
 
 import com.github.javaparser.ParseException;
 import org.junit.jupiter.api.Test;

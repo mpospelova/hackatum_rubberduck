@@ -5,53 +5,44 @@ import com.github.javaparser.ParseException;
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.body.MethodDeclaration;
 import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
-
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
-public class FileParser implements Parser{
-
+public class FileParser implements Parser {
 
     @Override
-    public String parseSyntax(String docpath) throws IOException, ParseException {
-
-        // creates an input stream for the file to be parsed
+    public List<String> parseSyntax(String docpath) throws IOException, ParseException {
         FileInputStream in = new FileInputStream(docpath);
-
         CompilationUnit cu;
         try {
-            // parse the file
             cu = JavaParser.parse(in);
         } finally {
             in.close();
         }
 
-        // visit and print the methods names
-//        List<String> methods = new ArrayList<>();
-        new MethodVisitor().visit(cu, null);
+        MethodVisitor mv = new MethodVisitor();
+        mv.visit(cu, null);
+        List<String> functionnames = mv.getFunctionNames();
 
-//        visit(cu, null);
-
-
-        return null;
+        return functionnames;
     }
 
-    private static class MethodVisitor extends VoidVisitorAdapter {
+    private class MethodVisitor extends VoidVisitorAdapter {
+        List<String> functionNames;
+
+        public MethodVisitor() {
+            functionNames = new ArrayList<>();
+        }
 
         public void visit(MethodDeclaration n, Object arg) {
-            // here you can access the attributes of the method.
-            // this method will be called for all methods in this
-            // CompilationUnit, including inner class methods
-            System.out.println(n.getDeclarationAsString());
+            functionNames.add(n.getDeclarationAsString());
+
+        }
+
+        public List<String> getFunctionNames() {
+            return functionNames;
         }
     }
-//    public List<String> visit(MethodDeclaration n, Object arg) {
-//        List<String> methods = new ArrayList<>();
-//        // here you can access the attributes of the method.
-//        // this method will be called for all methods in this
-//        // CompilationUnit, including inner class methods
-//        methods.add(n.getDeclarationAsString());
-//
-//        return methods;
-//    }
 }
