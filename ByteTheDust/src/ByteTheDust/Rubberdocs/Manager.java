@@ -14,7 +14,7 @@ public class Manager {
 	private final String dummyFilePath = "test.java";
 
 	public Manager(){
-		this.speechToText = new SpeechToText();
+		this.speechToText = new SpeechToText(null);
 	}
 
 	public void run(){
@@ -31,7 +31,7 @@ public class Manager {
 		//keyword = GUI.getUserInputKeyword()
 
 		//5. What is you documentation
-		speechToText = new SpeechToText();
+		speechToText = new SpeechToText(null);
 
 		speechToText.startRecognizer();
 

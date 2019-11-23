@@ -2,7 +2,7 @@ package ByteTheDust.Rubberdocs;
 
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
+
 import com.microsoft.cognitiveservices.speech.*;
 
 /**
@@ -21,7 +21,11 @@ public class SpeechToText {
 
 	private SpeechRecognizer recognizer;
 
-	public SpeechToText() {
+	//To update the text view live
+	private final INewTranslatedtext newTranslatedtext;
+
+	public SpeechToText(final INewTranslatedtext newTranslatedtext) {
+	    this.newTranslatedtext=newTranslatedtext;
 	    this.recognizedText = new StringBuffer();
 
         SpeechConfig config = SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
@@ -38,8 +42,12 @@ public class SpeechToText {
 
         recognizer.recognized.addEventListener((s, e) -> {
             if (e.getResult().getReason() == ResultReason.RecognizedSpeech) {
-                System.out.println("RECOGNIZED: Text=" + e.getResult().getText());
-                recognizedText.append(e.getResult().getText());
+                final String text=e.getResult().getText();
+                System.out.println("RECOGNIZED: Text=" + text);
+                recognizedText.append(text);
+                if(newTranslatedtext!=null){
+                    newTranslatedtext.onNewTranslatedText(text);
+                }
             }
             else if (e.getResult().getReason() == ResultReason.NoMatch) {
                 System.out.println("NOMATCH: Speech could not be recognized.");
@@ -100,7 +108,7 @@ public class SpeechToText {
      */
 	//
     public static void main(String[] args) {
-        SpeechToText speechToText = new SpeechToText();
+        SpeechToText speechToText = new SpeechToText(null);
 
         speechToText.startRecognizer();
 
