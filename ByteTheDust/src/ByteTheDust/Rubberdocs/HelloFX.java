@@ -23,8 +23,7 @@ public class HelloFX extends Application implements EventHandler<ActionEvent>, I
     private final ArrayList<String> keywords=new ArrayList<>();
     private final ArrayList<ToggleButton> buttons=new ArrayList<>();
     private Object selectedButton;
-    private TextArea textArea;
-
+    private final TextArea textArea=new TextArea("Text area");
     private final SpeechToText speechToText=new SpeechToText(this);
 
     public static void main(String[] args) {
@@ -77,7 +76,6 @@ public class HelloFX extends Application implements EventHandler<ActionEvent>, I
             button1.setToggleGroup(group);
         }
 
-        textArea=new TextArea("Text area");
         GridPane.setConstraints(textArea,0,buttons.size());
         pane.getChildren().add(textArea);
 
