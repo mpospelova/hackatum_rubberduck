@@ -135,7 +135,6 @@ public class FileWriter {
             //off: start offset in data
             //len: length of data, number of bytes to write
             outputStream.write(data.getBytes());
-
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -146,9 +145,7 @@ public class FileWriter {
             }
         }
 	}
-	
-	
-	
+
 	
 	public static void main(String[] args) throws IOException {
 		
@@ -156,7 +153,7 @@ public class FileWriter {
 		test.put("class TestFile", "Annotation1, (belong to class 1)");
 		test.put("public String foo()", "Hello Consti, This Method does Foo");
 		String docFilePath = ".readme.md";
-		String srcFilePath = "C:\\Users\\lh\\IdeaProjects\\hackatum_rubberduck\\ByteTheDust\\src\\ByteTheDust\\Rubberdocs\\TestFile.java";
+		String srcFilePath = "src\\ByteTheDust\\Rubberdocs\\TestFile.java";
 
 		FileWriter fw = new FileWriter(docFilePath, srcFilePath);
 		fw.updateSourceFile(test);
