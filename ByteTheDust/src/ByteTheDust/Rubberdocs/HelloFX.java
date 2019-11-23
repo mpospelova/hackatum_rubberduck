@@ -9,6 +9,11 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
+//Filechooser
+import java.io.File;
+import javafx.stage.FileChooser;
+import javafx.stage.DirectoryChooser;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,6 +33,14 @@ public class HelloFX extends Application implements EventHandler<ActionEvent>, I
         //speechToText.getUserInput();
     }
 
+    public File requestDirectory(final Stage stage){
+        final DirectoryChooser directoryChooser = new DirectoryChooser();
+        final File selectedDirectory = directoryChooser.showDialog(stage);
+        if (selectedDirectory != null) {
+            selectedDirectory.getAbsolutePath();
+        }
+        return selectedDirectory;
+    }
 
     @Override
     public void start(Stage stage) {
