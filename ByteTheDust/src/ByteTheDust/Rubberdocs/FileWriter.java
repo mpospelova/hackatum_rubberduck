@@ -1,6 +1,7 @@
 package ByteTheDust.Rubberdocs;
 import java.util.HashMap;
 import java.io.*;
+import java.util.Scanner;
 
 public class FileWriter {	
 	//Implements several functions to write Annotations passed by manager to Documentation File / directly to SourceFile
@@ -33,12 +34,15 @@ public class FileWriter {
 		
 		writeToReadme(readme, data);
 	}
-	
+
+
+
 	//Besserer Ansatz, schreibt Annotations direkt in's source File.
 	public void updateSourceFile(HashMap input) {
-		String docuString = String content = new Scanner(new File("filename")).useDelimiter("\\Z").next();
 
-
+		sourcefile = new File(sourceFilepath);
+		String docuString = new Scanner(sourcefile).useDelimiter("\\Z").next();
+		System.out.println(docustring);
 
 
 
