@@ -15,6 +15,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.DirectoryChooser;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 
@@ -25,6 +26,10 @@ public class HelloFX extends Application implements EventHandler<ActionEvent>, I
     private Object selectedButton;
     private final TextArea textArea=new TextArea("Text area");
     private final SpeechToText speechToText=new SpeechToText(this);
+
+    private static final String SRC_FILE_PATH= "src\\ByteTheDust\\Rubberdocs\\TestFile.java"; //"../ExampleCodeForRubberdoc/ExampleClass.java"
+
+    private final FileWriter fileWriter=new FileWriter("",SRC_FILE_PATH);
 
     public static void main(String[] args) {
         Application.launch();
@@ -47,7 +52,7 @@ public class HelloFX extends Application implements EventHandler<ActionEvent>, I
 
         //Parse the file from FileParser
         FileParser parser=new FileParser();
-        final List<String> tmp=parser.parseSyntax("../ExampleCodeForRubberdoc/ExampleClass.java");
+        final List<String> tmp=parser.parseSyntax(SRC_FILE_PATH);
 
         for(final String s:tmp){
             System.out.println("Parser returned:"+s);
@@ -109,6 +114,12 @@ public class HelloFX extends Application implements EventHandler<ActionEvent>, I
                 System.out.println("Stop listening");
                 final String translatedText=speechToText.stopRecognizer();
                 textArea.setText(translatedText);
+                final HashMap<String,String> map=new HashMap<>();
+
+                System.out.println("Updating file writer with:"+translatedText);
+                map.put(((ToggleButton)selectedButton).getText(),translatedText);
+                fileWriter.updateSourceFile(map);
+
                 selectedButton=null;
             }
             //re-enable all the butons
