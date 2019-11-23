@@ -9,23 +9,26 @@ import com.microsoft.cognitiveservices.speech.*;
 public class SpeechToText {
 	//This class implements the Azure API in an object oriented way,
 	//adds functionality to "record until manually stopped"
-	
-	
+
+
 	//semaphor: Default 0, if set to 1 the recording will stop
 	public boolean stop;
-	private String speechSubscriptionKey;
-	private String serviceRegion;
-	
-	
+	private static String speechSubscriptionKey;
+	private static String serviceRegion;
+
+	public SpeechToText() {
+        // Replace below with your own subscription key
+		speechSubscriptionKey = "a5289b47e09c4e1887d5b7c1283d561b";
+        // Replace below with your own service region (e.g., "westus").
+		serviceRegion = "westus";
+		this.stop = false;
+	}
+
+
 	public String getUserInput() {
 		String ausgabe = "";
-		
-        try {
-            // Replace below with your own subscription key
-            //String speechSubscriptionKey = "a5289b47e09c4e1887d5b7c1283d561b";
-            // Replace below with your own service region (e.g., "westus").
-            //String serviceRegion = "westus";
 
+        try {
             int exitCode = 1;
             SpeechConfig config = SpeechConfig.fromSubscription(speechSubscriptionKey, serviceRegion);
             assert(config != null);
@@ -68,30 +71,8 @@ public class SpeechToText {
             assert(false);
             System.exit(1);
         }
-		
-		
-		
-		
-		
-		
-		
 		return ausgabe;
 	}
-	
-	
-	
-	
-	
-	
-	public SpeechToText() {
-		this.speechSubscriptionKey = "a5289b47e09c4e1887d5b7c1283d561b";
-		this.serviceRegion = "westus";	
-		this.stop = false;
-	}
-	
-	
-	
-	
 
     /**
      * @param args Arguments are ignored in this sample.
