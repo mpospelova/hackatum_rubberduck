@@ -8,6 +8,7 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
@@ -16,6 +17,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
@@ -36,7 +38,10 @@ public class HelloDuck extends Application implements INewTranslatedtext {
     private static Stage stage;
 
     private Scene sceneChooseMethod;
-    private GridPane paneChooseMethod;
+
+    private VBox vbox;
+
+    private StackPane gridStartMenu;
 
     private Scene sceneRecordText;
     private VBox paneRecordText;
@@ -122,20 +127,19 @@ public class HelloDuck extends Application implements INewTranslatedtext {
         //parsedKeyWords.add("Keyword 2 function Y");
         parsedKeyWords.addAll(keywords);
 
-        ColumnConstraints colConst = new ColumnConstraints();
-        colConst.setPercentWidth(100.0f);
-        paneChooseMethod = new GridPane();
-        paneChooseMethod.getColumnConstraints().add(colConst);
-
-
+        this.gridStartMenu = new StackPane();
+        vbox = new VBox(7); // 5 is the spacing between elements in the VBox
+        vbox.setAlignment(Pos.CENTER);
         for (int i = 0; i < parsedKeyWords.size(); i++) {
             final String s = parsedKeyWords.get(i);
-            final Button button1 = new Button(s);
+            Button button1 = new Button(s);
             keywordButtons.add(button1);
-            GridPane.setConstraints(button1, 0, i);
-            paneChooseMethod.getChildren().add(button1);
+            vbox.getChildren().add(button1);
             button1.setOnAction((event) -> onUserChooseMethod(button1));
         }
+        gridStartMenu.getChildren().add(vbox);
+        gridStartMenu.setAlignment(Pos.CENTER);
+        StackPane.setAlignment(vbox, Pos.CENTER);
                   // System.out.println(getClass().getResource("duck1.png").get());
         //duckImage1 = new Image(getClass().getResource("duck1.png").getPath());
         //duckImage1 = new Image("@duck1.png");
@@ -147,7 +151,7 @@ public class HelloDuck extends Application implements INewTranslatedtext {
         //System.out.println(path);
         //duckImage2 = new Image(path);
 
-        sceneChooseMethod = new Scene(paneChooseMethod, MY_WIDTH, MY_HEIGHT);
+        sceneChooseMethod = new Scene(gridStartMenu, MY_WIDTH, MY_HEIGHT);
         try {
             paneRecordText= FXMLLoader.load(getClass().getResource("SceneRecordText.fxml"));
         } catch (IOException e) {
