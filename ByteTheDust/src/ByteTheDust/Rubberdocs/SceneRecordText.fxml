@@ -32,7 +32,7 @@
                   <Font name="Mistral" size="59.0" />
                </font>
             </Text>
-            <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Function name" wrappingWidth="535.0000002384186">
+            <Text layoutX="14.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Function name" wrappingWidth="535.0000002384186" fx:id="functionNameText" id="functionNameText">
                <font>
                   <Font name="Arial" size="16.0" />
                </font>

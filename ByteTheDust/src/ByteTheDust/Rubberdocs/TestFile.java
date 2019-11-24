@@ -26,6 +26,8 @@ public class TestFile {
 	//Yeah, click music.
 	//About 10 ish make?
 	//So OK.
+	//HI
+	//Test documentation for foo.
 	public String foo() {
 		return "Bar";
 	}

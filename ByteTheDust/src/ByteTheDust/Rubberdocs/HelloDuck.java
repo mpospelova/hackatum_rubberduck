@@ -13,6 +13,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,7 +27,7 @@ public class HelloDuck extends Application implements INewTranslatedtext {
     private final FileWriter fileWriter = new FileWriter("", SRC_FILE_PATH);
     private final SpeechToText speechToText = new SpeechToText(this);
 
-    private Stage stage;
+    private static Stage stage;
     private Scene sceneChooseMethod;
     private GridPane paneChooseMethod;
 
@@ -95,6 +96,8 @@ public class HelloDuck extends Application implements INewTranslatedtext {
         selectedKeyWord=selectedButton.getText();
         System.out.println("onUserChooseMethod:"+selectedKeyWord);
         stage.setScene(sceneRecordText);
+        final Text text=(Text)stage.getScene().lookup("#functionNameText");
+        text.setText(selectedKeyWord);
     }
 
 
@@ -109,6 +112,12 @@ public class HelloDuck extends Application implements INewTranslatedtext {
             fileWriter.updateSourceFile(map);
         }else{
             System.out.println("No input. Skipping");
+        }
+        try {
+            VBox box=FXMLLoader.load(getClass().getResource("EndPageGUI.fxml"));
+            stage.setScene(new Scene(box));
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
@@ -145,12 +154,6 @@ public class HelloDuck extends Application implements INewTranslatedtext {
         System.out.println("Continue");
         //stage.setScene(sceneChooseMethod);
         //stage.show();
-        /*try {
-            VBox box=FXMLLoader.load(getClass().getResource("EndPageGUI.fxml"));
-            stage.setScene(new Scene(box));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
 
 
     }
