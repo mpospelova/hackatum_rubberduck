@@ -28,6 +28,7 @@ public class TestFile {
 	//So OK.
 	//HI
 	//Test documentation for foo.
+	//Let's document some functions for the method. Foo it takes several parameters for example, one that is stupid.
 	public String foo() {
 		return "Bar";
 	}
