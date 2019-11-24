@@ -36,19 +36,21 @@
                   <Image url="@duck1.png" />
                </image>
             </ImageView>
-            <Button id="saveButton" fx:id="saveButton" alignment="CENTER" layoutX="31.0" layoutY="494.0" mnemonicParsing="false" onAction="#onSave" prefHeight="48.0" prefWidth="300.0" style="-fx-border-radius: 0; -fx-background-color: dodgerblue;" text="Save" textAlignment="CENTER" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="269.0">
+            <Button id="saveButton" fx:id="saveButton" alignment="CENTER" layoutX="31.0" layoutY="494.0" mnemonicParsing="false" onAction="#onSave" prefHeight="48.0" prefWidth="255.0" style="-fx-border-radius: 0; -fx-background-color: dodgerblue;" text="Save" textAlignment="CENTER" AnchorPane.leftAnchor="31.0" AnchorPane.rightAnchor="314.0">
                <font>
                   <Font name="Arial" size="17.0" />
                </font>
             </Button>
-            <CheckBox alignment="CENTER" contentDisplay="CENTER" layoutX="343.0" layoutY="494.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="107.0" style="-fx-background-color: dodgerblue;" text="toDoc">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="295.0" layoutY="493.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="132.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="435.0" layoutY="493.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="132.0" />
+            <CheckBox alignment="CENTER" contentDisplay="CENTER" layoutX="307.0" layoutY="494.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="107.0" style="-fx-background-color: dodgerblue;" text="toDoc">
                <font>
                   <Font name="Arial" size="17.0" />
                </font>
             </CheckBox>
-            <CheckBox alignment="CENTER" contentDisplay="CENTER" layoutX="460.0" layoutY="494.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="107.0" style="-fx-background-color: dodgerblue;" text="toSrcCode">
+            <CheckBox alignment="CENTER" contentDisplay="CENTER" layoutX="445.0" layoutY="494.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="114.0" style="-fx-background-color: dodgerblue;" text="toSrcCode">
                <font>
-                  <Font name="Arial" size="16.0" />
+                  <Font name="Arial" size="17.0" />
                </font>
             </CheckBox>
             <ImageView fitHeight="39.0" fitWidth="103.0" layoutX="518.0" pickOnBounds="true" preserveRatio="true">
