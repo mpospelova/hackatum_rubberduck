@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -51,19 +52,26 @@ public class FolderChooseGUI extends Application {
         return selectedDirectory;
     }
 
+    public File requestFile(final Stage stage){
+        final FileChooser fileChooser = new FileChooser();
+        final File selectedFile = fileChooser.showOpenDialog(stage);
+        return selectedFile;
+    }
+
 
     @FXML
     public void onDuckImageClicked(){
         System.out.println("Duck image clicked!");
-        File dir = requestDirectory(stage);
-        if(dir != null) {
-            System.out.println("FolderChooseGUI:" + dir.toString());
-            if(!FileChooseGUI.getJavaFilesInFolder(dir.toString()).isEmpty()){
+        //File dir = requestDirectory(stage);
+        File file = requestFile(stage);
+        if(file != null) {
+            System.out.println("FolderChooseGUI:" + file.toString());
+            //if(!FileChooseGUI.getJavaFilesInFolder(dir.toString()).isEmpty()){
                 //TODO: switch scene to filechooseGUI
-            }
-            else{
-                System.out.println("no java files found");
-            }
+            //}
+            //else{
+              //  System.out.println("no java files found");
+            //}
         }
     }
 

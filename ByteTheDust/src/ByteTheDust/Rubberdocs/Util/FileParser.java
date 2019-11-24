@@ -1,4 +1,4 @@
-package ByteTheDust.Rubberdocs;
+package ByteTheDust.Rubberdocs.Util;
 
 import com.github.javaparser.JavaParser;
 import com.github.javaparser.ParseException;

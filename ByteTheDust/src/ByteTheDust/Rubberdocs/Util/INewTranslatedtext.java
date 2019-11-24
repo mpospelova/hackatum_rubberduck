@@ -1,4 +1,4 @@
-package ByteTheDust.Rubberdocs;
+package ByteTheDust.Rubberdocs.Util;
 
 //Implemented by the UI to update text view
 public interface INewTranslatedtext {

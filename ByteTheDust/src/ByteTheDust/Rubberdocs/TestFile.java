@@ -17,6 +17,7 @@ public class TestFile {
 	//Cocoa nut.
 	//Test foo function.
 
+	//This is the documentation for Maine.
 	public String foo() {
 		return "Bar";
 	}

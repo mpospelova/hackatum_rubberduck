@@ -1,10 +1,8 @@
-package ByteTheDust.Rubberdocs;
+package ByteTheDust.Rubberdocs.Util;
 import java.util.HashMap;
 import java.io.*;
 import java.util.Scanner;
-import java.util.List;
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class FileWriter {	
 	//Implements several functions to write Annotations passed by manager to Documentation File / directly to SourceFile
