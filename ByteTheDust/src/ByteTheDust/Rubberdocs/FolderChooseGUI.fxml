@@ -25,7 +25,7 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="750.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
             <ImageView fitHeight="452.0" fitWidth="501.0" layoutX="50.0" layoutY="42.0">
                <image>
-                  <Image url="@LogoRubberDocs.PNG" />
+                  <Image url="@LogoRubberDocs.png" />
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />

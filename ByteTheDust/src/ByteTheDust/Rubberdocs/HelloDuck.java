@@ -94,10 +94,10 @@ public class HelloDuck extends Application implements INewTranslatedtext {
             //else{
             //  System.out.println("no java files found");
             //}
+            String filepath = file.getAbsolutePath();
+            doSecondTask(stage, filepath);
         }
 
-        String filepath = file.getAbsolutePath();
-        doSecondTask(stage, filepath);
     }
 
     public static File requestFile(final Stage stage){

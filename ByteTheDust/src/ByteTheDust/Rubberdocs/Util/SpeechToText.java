@@ -38,6 +38,10 @@ public class SpeechToText {
         // Subscribes to events.
         recognizer.recognizing.addEventListener((s, e) -> {
             System.out.println("RECOGNIZING: Text=" + e.getResult().getText());
+            String text = e.getResult().getText();
+            if(newTranslatedtext!=null){
+                newTranslatedtext.onNewTranslatedText(getRecognizedText() + text);
+            }
         });
 
         recognizer.recognized.addEventListener((s, e) -> {
@@ -45,9 +49,6 @@ public class SpeechToText {
                 final String text=e.getResult().getText();
                 System.out.println("RECOGNIZED: Text=" + text);
                 recognizedText.append(text);
-                if(newTranslatedtext!=null){
-                    newTranslatedtext.onNewTranslatedText(text);
-                }
             }
             else if (e.getResult().getReason() == ResultReason.NoMatch) {
                 System.out.println("NOMATCH: Speech could not be recognized.");
