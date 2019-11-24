@@ -37,6 +37,7 @@ public class HelloDuck extends Application implements INewTranslatedtext {
     private final SpeechToText speechToText = new SpeechToText(this);
 
     private static Stage stage;
+    private static String selectedFilePath;
 
     private Scene sceneChooseMethod;
 
@@ -107,6 +108,7 @@ public class HelloDuck extends Application implements INewTranslatedtext {
             //  System.out.println("no java files found");
             //}
             String filepath = file.getAbsolutePath();
+            selectedFilePath=filepath;
             doSecondTask(stage, filepath);
         }
 
@@ -244,11 +246,14 @@ public class HelloDuck extends Application implements INewTranslatedtext {
     }
 
     @FXML
-    public void onContinue(ActionEvent actionEvent) {
+    public void onContinueEditing(ActionEvent actionEvent) {
         System.out.println("Continue");
         //stage.setScene(sceneChooseMethod);
         //stage.show();
+        doSecondTask(stage,selectedFilePath);
+    }
 
 
+    public void onExit(ActionEvent actionEvent) {
     }
 }

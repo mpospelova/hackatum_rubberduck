@@ -29,7 +29,6 @@ public class EndPageGUI extends Application{
     @FXML
     public void onContinue() {
 
-
     }
 
     @FXML
