@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 
 <?import javafx.scene.control.ToggleButton?>
-<VBox fillWidth="false" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: deepskyblue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ByteTheDust.Rubberdocs.TextEditor">
+<VBox fillWidth="false" prefHeight="600.0" prefWidth="500.0" style="-fx-background-color: deepskyblue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ByteTheDust.Rubberdocs.HelloDuck">
 
    <children>
       <AnchorPane prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: skyblue;">
@@ -32,7 +32,7 @@
       </AnchorPane>
       <AnchorPane prefHeight="462.0" prefWidth="600.0">
          <children>
-            <Button id="saveButton" fx:id="saveButton" layoutX="14.0" layoutY="371.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="118.0" text="Save" />
+            <Button id="saveButton" fx:id="saveButton" layoutX="14.0" layoutY="371.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="118.0" text="Save" onAction="#onSave" />
             <Button id="continueButton" fx:id="continueButton" layoutX="439.0" layoutY="371.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="139.0" text="Continue" />
             <TextField id="myTextArea" fx:id="myTextArea" layoutX="-1.0" layoutY="-3.0" prefHeight="368.0" prefWidth="600.0" />
          </children>

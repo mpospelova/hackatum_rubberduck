@@ -1,4 +1,4 @@
-package ByteTheDust.Rubberdocs;
+package ByteTheDust.Rubberdocs.Util;
 
 import java.util.Scanner;
 import java.util.concurrent.ExecutionException;
