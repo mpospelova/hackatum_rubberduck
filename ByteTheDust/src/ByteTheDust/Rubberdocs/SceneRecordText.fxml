@@ -33,7 +33,7 @@
       <AnchorPane prefHeight="462.0" prefWidth="600.0">
          <children>
             <Button id="saveButton" fx:id="saveButton" layoutX="14.0" layoutY="371.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="118.0" text="Save" onAction="#onSave" />
-            <Button id="continueButton" fx:id="continueButton" layoutX="439.0" layoutY="371.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="139.0" text="Continue" />
+            <Button id="continueButton" fx:id="continueButton" layoutX="439.0" layoutY="371.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="139.0" text="Continue" onAction="#onContinue" />
             <TextField id="myTextArea" fx:id="myTextArea" layoutX="-1.0" layoutY="-3.0" prefHeight="368.0" prefWidth="600.0" />
          </children>
       </AnchorPane>

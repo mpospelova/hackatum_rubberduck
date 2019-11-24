@@ -5,6 +5,7 @@ import ByteTheDust.Rubberdocs.Util.FileWriter;
 import ByteTheDust.Rubberdocs.Util.INewTranslatedtext;
 import ByteTheDust.Rubberdocs.Util.SpeechToText;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -21,7 +22,7 @@ import java.util.List;
 
 
 public class HelloDuck extends Application implements INewTranslatedtext {
-    private static final String SRC_FILE_PATH = "src\\ByteTheDust\\Rubberdocs\\TestFile.java";
+    private static final String SRC_FILE_PATH = "src\\ByteTheDust\\Rubberdocs\\HelloDuck_.java";
     private final FileWriter fileWriter = new FileWriter("", SRC_FILE_PATH);
     private final SpeechToText speechToText = new SpeechToText(this);
 
@@ -102,8 +103,12 @@ public class HelloDuck extends Application implements INewTranslatedtext {
         final String key=selectedKeyWord;
         HashMap<String, String> map = new HashMap<>();
         map.put(key, text);
-        System.out.println("Updating file writer with Text:"+text+" Key:"+key);
-        fileWriter.updateSourceFile(map);
+        if(text.length()>0){
+            System.out.println("Updating file writer with Text:"+text+" Key:"+key);
+            fileWriter.updateSourceFile(map);
+        }else{
+            System.out.println("No input. Skipping");
+        }
     }
 
     @FXML
@@ -136,4 +141,18 @@ public class HelloDuck extends Application implements INewTranslatedtext {
         setAreaText(text);
     }
 
+    @FXML
+    public void onContinue(ActionEvent actionEvent) {
+        System.out.println("Continue");
+        //stage.setScene(sceneChooseMethod);
+        //stage.show();
+        /*try {
+            VBox box=FXMLLoader.load(getClass().getResource("EndPageGUI.fxml"));
+            stage.setScene(new Scene(box));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
+
+
+    }
 }
