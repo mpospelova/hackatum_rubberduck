@@ -7,7 +7,7 @@ import java.util.ArrayList;
 public class FileWriter {	
 	//Implements several functions to write Annotations passed by manager to Documentation File / directly to SourceFile
 
-	private File readme;
+	public File readme;
 	private File source;
 	
 	//Dummy method, just updates Docu-File

@@ -60,6 +60,12 @@ public class HelloDuck extends Application implements INewTranslatedtext {
     @FXML
     public ImageView myImageView;
 
+    @FXML
+    public CheckBox toDocCheckBox;
+
+    @FXML
+    public CheckBox toSrcCodeCheckBox;
+
     private Image duckImage1;
     private Image duckImage2;
 
@@ -123,7 +129,7 @@ public class HelloDuck extends Application implements INewTranslatedtext {
 
         //create all the objects
         List<String> keywords=new FileParser().parseSyntax(FILE_PATH); //SRC_FILE_PATH
-        fileWriter = new FileWriter("", FILE_PATH);
+        fileWriter = new FileWriter(FILE_PATH, FILE_PATH);
         //parsedKeyWords.add("Keyword 1 class X");
         //parsedKeyWords.add("Keyword 2 function Y");
         parsedKeyWords.addAll(keywords);
@@ -185,8 +191,15 @@ public class HelloDuck extends Application implements INewTranslatedtext {
         HashMap<String, String> map = new HashMap<>();
         map.put(key, text);
         if(text.length()>0){
-            System.out.println("Updating file writer with Text:"+text+" Key:"+key);
-            fileWriter.updateSourceFile(map);
+            if(toSrcCodeCheckBox.isSelected()) {
+                System.out.println("Updating source code writer with Text:" + text + " Key:" + key);
+                fileWriter.updateSourceFile(map);
+            }
+            if(toDocCheckBox.isSelected()) {
+                System.out.println("Updating source code writer with Text:" + text + " Key:" + key);
+                fileWriter.readme = requestFile(stage);
+                fileWriter.updateDocumentationFile(map);
+            }
         }else{
             System.out.println("No input. Skipping");
         }

@@ -2,7 +2,7 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -12,7 +12,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<?import javafx.scene.control.TextArea?>
 <VBox fillWidth="false" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: deepskyblue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ByteTheDust.Rubberdocs.HelloDuck">
 
    <children>
@@ -20,7 +19,7 @@
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="752.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
-            <TextArea id="myTextArea" fx:id="myTextArea" layoutX="32.0" layoutY="554.0" prefHeight="179.0" prefWidth="535.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="33.0" wrapText="true"/>
+            <TextArea id="myTextArea" fx:id="myTextArea" layoutX="32.0" layoutY="554.0" prefHeight="179.0" prefWidth="535.0" wrapText="true" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="33.0" />
             <Text fill="#f9ff00" layoutX="77.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click me!" textAlignment="CENTER" wrappingWidth="447.00006103515625">
                <font>
                   <Font name="Harlow Solid Italic" size="56.0" />
@@ -44,12 +43,12 @@
             </Button>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="295.0" layoutY="493.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="132.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutX="435.0" layoutY="493.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="132.0" />
-            <CheckBox alignment="CENTER" contentDisplay="CENTER" layoutX="307.0" layoutY="494.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="107.0" style="-fx-background-color: dodgerblue;" text="toDoc">
+            <CheckBox id="toDocCheckBox" fx:id="toDocCheckBox" alignment="CENTER" contentDisplay="CENTER" layoutX="307.0" layoutY="494.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="107.0" style="-fx-background-color: dodgerblue;" text="toDoc">
                <font>
                   <Font name="Arial" size="17.0" />
                </font>
             </CheckBox>
-            <CheckBox alignment="CENTER" contentDisplay="CENTER" layoutX="445.0" layoutY="494.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="114.0" style="-fx-background-color: dodgerblue;" text="toSrcCode">
+            <CheckBox id="toSrcCodeCheckBox" fx:id="toSrcCodeCheckBox" alignment="CENTER" contentDisplay="CENTER" layoutX="445.0" layoutY="494.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="114.0" style="-fx-background-color: dodgerblue;" text="toSrcCode">
                <font>
                   <Font name="Arial" size="17.0" />
                </font>
