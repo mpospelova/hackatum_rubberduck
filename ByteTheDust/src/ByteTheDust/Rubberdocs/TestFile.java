@@ -18,6 +18,10 @@ public class TestFile {
 	//Test foo function.
 
 	//This is the documentation for Maine.
+	//Hello test, 1234.
+	//Hello.
+	//test
+	//testadsfsdaasdsfaadsf
 	public String foo() {
 		return "Bar";
 	}

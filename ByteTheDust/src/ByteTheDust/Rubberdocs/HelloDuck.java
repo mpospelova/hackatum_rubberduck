@@ -35,15 +35,15 @@ public class HelloDuck extends Application implements INewTranslatedtext {
 
     private final ArrayList<String> parsedKeyWords = new ArrayList<>();
     private final ArrayList<Button> keywordButtons = new ArrayList<>();
-    private Object toggleButt;
+
     private static String selectedKeyWord;
 
-    private static final int MY_WIDTH = 640, MY_HEIGHT = 480;
+    private static final int MY_WIDTH = 600, MY_HEIGHT = 800;
 
     @FXML
     public TextField myTextArea;
-    @FXML
-    public ToggleButton listeningButton;
+
+    boolean listening;
 
 
     public static void main(String[] args) {
@@ -53,6 +53,7 @@ public class HelloDuck extends Application implements INewTranslatedtext {
 
     @Override
     public void start(Stage stage) {
+        this.listening = false;
         this.stage = stage;
         stage.setTitle("ByteTheDust Rubberdocs");
 
@@ -113,18 +114,16 @@ public class HelloDuck extends Application implements INewTranslatedtext {
 
     @FXML
     public void onListening() {
-        if(toggleButt == null) {
-            toggleButt = listeningButton;
-            listeningButton.setText("Stop Listening");
+        if(!listening) {
             System.out.println("Start listening (Recognizer)");
             myTextArea.setText("");
             speechToText.startRecognizer();
+            listening = true;
         } else {
             System.out.println("Stop listening (Recognizer)");
-            listeningButton.setText("Start Listening");
             final String translatedText = speechToText.stopRecognizer();
             setAreaText(translatedText);
-            toggleButt = null;
+            listening = false;
         }
     }
 
