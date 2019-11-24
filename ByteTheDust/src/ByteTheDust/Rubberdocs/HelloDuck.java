@@ -141,7 +141,7 @@ public class HelloDuck extends Application implements INewTranslatedtext {
     }
 
     public void setAreaText(final String text) {
-        if(text!=null && text.length()>0){
+        if(text!=null && text.length()>0 && myTextArea!=null){
             myTextArea.setText(text);
         }
     }
