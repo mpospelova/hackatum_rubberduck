@@ -8,12 +8,14 @@ import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -21,6 +23,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
 
 
 public class HelloDuck extends Application implements INewTranslatedtext {
@@ -56,12 +59,50 @@ public class HelloDuck extends Application implements INewTranslatedtext {
 
     @Override
     public void start(Stage stage) {
-        final File file=FolderChooseGUI.requestFile(stage);
-        final String FILE_PATH=file.getAbsolutePath();
+        this.stage = stage;
+        stage.setTitle("ByteTheDust Initial");
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("FolderChooseGUI.fxml"));
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+    }
+
+    @FXML
+    public void onDuckImageClicked(){
+        System.out.println("Duck image clicked!");
+        //File dir = requestDirectory(stage);
+        File file = requestFile(stage);
+        if(file != null) {
+            System.out.println("FolderChooseGUI:" + file.toString());
+            //if(!FileChooseGUI.getJavaFilesInFolder(dir.toString()).isEmpty()){
+            //TODO: switch scene to filechooseGUI
+            //}
+            //else{
+            //  System.out.println("no java files found");
+            //}
+        }
+
+        String filepath = file.getAbsolutePath();
+        doSecondTask(stage, filepath);
+    }
+
+    public static File requestFile(final Stage stage){
+        final FileChooser fileChooser = new FileChooser();
+        final File selectedFile = fileChooser.showOpenDialog(stage);
+        return selectedFile;
+    }
+
+
+    public void doSecondTask(Stage stage, String filepath){
+
+        final String FILE_PATH=filepath;
 
         this.listening = false;
-        this.stage = stage;
         stage.setTitle("ByteTheDust Rubberdocs");
 
         //create all the objects

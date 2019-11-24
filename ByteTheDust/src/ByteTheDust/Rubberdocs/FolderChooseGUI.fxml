@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: DeepSkyBlue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ByteTheDust.Rubberdocs.FolderChooseGUI">
+<VBox prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: DeepSkyBlue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ByteTheDust.Rubberdocs.HelloDuck">
   <children>
       <AnchorPane onMousePressed="#onDuckImageClicked" prefHeight="850.0" prefWidth="600.0">
          <children>

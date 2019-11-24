@@ -14,6 +14,8 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 
+import static javafx.application.Platform.exit;
+
 public class FolderChooseGUI extends Application {
     private Stage stage;
     private Scene scene;
@@ -40,6 +42,7 @@ public class FolderChooseGUI extends Application {
     public String getDirectoryPath(){
         return this.directoryPath;
     }
+
 
     public static void main(String[] args) {
         launch(args);
