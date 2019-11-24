@@ -22,7 +22,7 @@ import java.util.List;
 
 
 public class HelloDuck extends Application implements INewTranslatedtext {
-    private static final String SRC_FILE_PATH = "src\\ByteTheDust\\Rubberdocs\\HelloDuck_.java";
+    private static final String SRC_FILE_PATH = "src\\ByteTheDust\\Rubberdocs\\TestFile.java";
     private final FileWriter fileWriter = new FileWriter("", SRC_FILE_PATH);
     private final SpeechToText speechToText = new SpeechToText(this);
 

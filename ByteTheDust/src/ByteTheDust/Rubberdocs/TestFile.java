@@ -22,6 +22,7 @@ public class TestFile {
 	//Hello.
 	//test
 	//testadsfsdaasdsfaadsf
+	//Hello.
 	public String foo() {
 		return "Bar";
 	}
