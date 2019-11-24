@@ -10,6 +10,8 @@ public class TestFile {
 		return "Bar";
 	}
 
+	//Hello.
+	//This is a test.
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

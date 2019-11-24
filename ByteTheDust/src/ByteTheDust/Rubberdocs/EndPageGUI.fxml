@@ -29,12 +29,13 @@
             </Button>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DodgerBlue" height="50.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DodgerBlue" height="50.0" layoutY="754.0" stroke="TRANSPARENT" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
-            <ImageView fitHeight="238.0" fitWidth="496.0" layoutX="52.0" layoutY="125.0">
+            <ImageView fitHeight="326.0" fitWidth="430.0" layoutX="112.0" layoutY="76.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Rubberduck logo.png" />
+                  <Image url="@duck3.png" />
                </image>
             </ImageView>
          </children>
       </AnchorPane>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </VBox>
