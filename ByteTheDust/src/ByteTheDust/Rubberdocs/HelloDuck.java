@@ -28,7 +28,6 @@ import java.util.HashMap;
 import java.util.List;
 
 
-
 public class HelloDuck extends Application implements INewTranslatedtext {
     private static final String SRC_FILE_PATH = "src\\ByteTheDust\\Rubberdocs\\TestFile.java";
     private static FileWriter fileWriter;
@@ -69,7 +68,8 @@ public class HelloDuck extends Application implements INewTranslatedtext {
     @Override
     public void start(Stage stage) {
         this.stage = stage;
-        stage.setTitle("ByteTheDust Initial");
+        stage.setTitle("RubberDocs!");
+        stage.getIcons().add(new Image(HelloDuck.class.getResourceAsStream("duck1.png")));
         try {
             Parent root = FXMLLoader.load(getClass().getResource("FolderChooseGUI.fxml"));
             Scene scene = new Scene(root);
@@ -112,7 +112,8 @@ public class HelloDuck extends Application implements INewTranslatedtext {
         final String FILE_PATH=filepath;
 
         this.listening = false;
-        stage.setTitle("ByteTheDust Rubberdocs");
+        stage.setTitle("RubberDocs!");
+        stage.getIcons().add(new Image(HelloDuck.class.getResourceAsStream("duck2.png")));
 
         //create all the objects
         List<String> keywords=new FileParser().parseSyntax(FILE_PATH); //SRC_FILE_PATH
