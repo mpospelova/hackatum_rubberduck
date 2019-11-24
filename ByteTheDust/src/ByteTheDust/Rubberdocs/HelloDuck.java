@@ -253,7 +253,8 @@ public class HelloDuck extends Application implements INewTranslatedtext {
         doSecondTask(stage,selectedFilePath);
     }
 
-
+    @FXML
     public void onExit(ActionEvent actionEvent) {
+        System.exit(0);
     }
 }
