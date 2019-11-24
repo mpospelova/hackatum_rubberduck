@@ -12,6 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
+<?import javafx.scene.control.TextArea?>
 <VBox fillWidth="false" prefHeight="800.0" prefWidth="600.0" style="-fx-background-color: deepskyblue;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ByteTheDust.Rubberdocs.HelloDuck">
 
    <children>
@@ -19,7 +20,7 @@
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="50.0" layoutY="752.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="600.0" />
-            <TextField id="myTextArea" fx:id="myTextArea" alignment="TOP_LEFT" layoutX="32.0" layoutY="554.0" prefHeight="179.0" prefWidth="535.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="33.0" />
+            <TextArea id="myTextArea" fx:id="myTextArea" layoutX="32.0" layoutY="554.0" prefHeight="179.0" prefWidth="535.0" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="32.0" AnchorPane.rightAnchor="33.0" wrapText="true"/>
             <Text fill="#f9ff00" layoutX="77.0" layoutY="458.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Click me!" textAlignment="CENTER" wrappingWidth="447.00006103515625">
                <font>
                   <Font name="Harlow Solid Italic" size="56.0" />

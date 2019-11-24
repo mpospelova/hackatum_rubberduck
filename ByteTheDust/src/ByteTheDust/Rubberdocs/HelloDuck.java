@@ -55,7 +55,7 @@ public class HelloDuck extends Application implements INewTranslatedtext {
     private static final int MY_WIDTH = 600, MY_HEIGHT = 800;
 
     @FXML
-    public TextField myTextArea;
+    public TextArea myTextArea;
 
     @FXML
     public ImageView myImageView;

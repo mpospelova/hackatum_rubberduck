@@ -10,6 +10,8 @@ public class TestFile {
 	//test one two three four
 	//This is a test for function.the function takes no parameters
 	//hello test one two three four
+	//Google.Hello, we're testing long text if it doesn't break line on the end of the file cause last time we used the text it works.Play.
+sadfsdfas
 	public String foo() {
 		return "Bar";
 	}
