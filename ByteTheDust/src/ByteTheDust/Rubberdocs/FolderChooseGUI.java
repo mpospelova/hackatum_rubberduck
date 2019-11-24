@@ -52,7 +52,7 @@ public class FolderChooseGUI extends Application {
         return selectedDirectory;
     }
 
-    public File requestFile(final Stage stage){
+    public static File requestFile(final Stage stage){
         final FileChooser fileChooser = new FileChooser();
         final File selectedFile = fileChooser.showOpenDialog(stage);
         return selectedFile;

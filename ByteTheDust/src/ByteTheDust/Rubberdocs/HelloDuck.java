@@ -16,6 +16,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,10 +25,11 @@ import java.util.List;
 
 public class HelloDuck extends Application implements INewTranslatedtext {
     private static final String SRC_FILE_PATH = "src\\ByteTheDust\\Rubberdocs\\TestFile.java";
-    private final FileWriter fileWriter = new FileWriter("", SRC_FILE_PATH);
+    private static FileWriter fileWriter;
     private final SpeechToText speechToText = new SpeechToText(this);
 
     private static Stage stage;
+
     private Scene sceneChooseMethod;
     private GridPane paneChooseMethod;
 
@@ -54,12 +56,17 @@ public class HelloDuck extends Application implements INewTranslatedtext {
 
     @Override
     public void start(Stage stage) {
+        final File file=FolderChooseGUI.requestFile(stage);
+        final String FILE_PATH=file.getAbsolutePath();
+
+
         this.listening = false;
         this.stage = stage;
         stage.setTitle("ByteTheDust Rubberdocs");
 
         //create all the objects
-        List<String> keywords=new FileParser().parseSyntax(SRC_FILE_PATH);
+        List<String> keywords=new FileParser().parseSyntax(FILE_PATH); //SRC_FILE_PATH
+        fileWriter = new FileWriter("", FILE_PATH);
         //parsedKeyWords.add("Keyword 1 class X");
         //parsedKeyWords.add("Keyword 2 function Y");
         parsedKeyWords.addAll(keywords);
