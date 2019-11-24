@@ -19,6 +19,7 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -133,6 +134,8 @@ public class HelloDuck extends Application implements INewTranslatedtext {
         for (int i = 0; i < parsedKeyWords.size(); i++) {
             final String s = parsedKeyWords.get(i);
             Button button1 = new Button(s);
+            button1.setFont(Font.font("Arial"));
+            button1.setStyle("-fx-font-size: 20; -fx-border-radius: 0; -fx-background-color: dodgerblue");
             keywordButtons.add(button1);
             vbox.getChildren().add(button1);
             button1.setOnAction((event) -> onUserChooseMethod(button1));
@@ -150,6 +153,8 @@ public class HelloDuck extends Application implements INewTranslatedtext {
         //System.out.println(getClass().getResource("duck1.png").getPath());
         //System.out.println(path);
         //duckImage2 = new Image(path);
+
+        gridStartMenu.setStyle("-fx-background-color: DeepSkyBlue;");
 
         sceneChooseMethod = new Scene(gridStartMenu, MY_WIDTH, MY_HEIGHT);
         try {
