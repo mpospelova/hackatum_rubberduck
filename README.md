@@ -1,6 +1,6 @@
 # hackatum_rubberduck 
 
-A shor instruction for setting up the JavaFx:
+Instruction for setting up the JavaFx:
   1. Download JavaFx:
     http://gluonhq.com/download/javafx-13.0.1-sdk-windows/
   2. Open "Project Structure" in Intellij
@@ -13,11 +13,11 @@ A shor instruction for setting up the JavaFx:
      path to the JavaFx \lib folder
   9. Now you can execute the Main Function.
   
-HelloDuck.java:
-  -the application itself
-FolderChooseGUI.java:
-  - opens the start page of the Application
-TestFile.java:
-  - an example file for demonstration
-EndPageGUI.java:
-  - opens the end page of the Application
+- HelloDuck.java:
+  ->the application itself
+- FolderChooseGUI.java:
+  ->opens the start page of the Application
+- TestFile.java:
+  ->an example file for demonstration
+- EndPageGUI.java:
+  ->opens the end page of the Application
