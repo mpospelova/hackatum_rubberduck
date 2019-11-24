@@ -11,6 +11,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
@@ -48,6 +51,12 @@ public class HelloDuck extends Application implements INewTranslatedtext {
 
     @FXML
     public TextField myTextArea;
+
+    @FXML
+    public ImageView myImageView;
+
+    private Image duckImage1;
+    private Image duckImage2;
 
     boolean listening;
 
@@ -126,6 +135,16 @@ public class HelloDuck extends Application implements INewTranslatedtext {
             paneChooseMethod.getChildren().add(button1);
             button1.setOnAction((event) -> onUserChooseMethod(button1));
         }
+                  // System.out.println(getClass().getResource("duck1.png").get());
+        //duckImage1 = new Image(getClass().getResource("duck1.png").getPath());
+        //duckImage1 = new Image("@duck1.png");
+       // myImageView.
+        //duckImage2 = new Image(getClass().getResource("duck2.png").getPath());
+        //String path = getClass().getResource("duck2.png").toExternalForm();
+        //path = path.substring(1);
+        //System.out.println(getClass().getResource("duck1.png").getPath());
+        //System.out.println(path);
+        //duckImage2 = new Image(path);
 
         sceneChooseMethod = new Scene(paneChooseMethod, MY_WIDTH, MY_HEIGHT);
         try {
@@ -175,11 +194,13 @@ public class HelloDuck extends Application implements INewTranslatedtext {
             System.out.println("Start listening (Recognizer)");
             myTextArea.setText("");
             speechToText.startRecognizer();
+            //myImageView.setImage(duckImage2);
             listening = true;
         } else {
             System.out.println("Stop listening (Recognizer)");
             final String translatedText = speechToText.stopRecognizer();
             setAreaText(translatedText);
+            //myImageView.setImage(duckImage1);
             listening = false;
         }
     }

@@ -31,7 +31,7 @@
                </font>
             </Text>
             <Circle fill="DODGERBLUE" layoutX="300.0" layoutY="252.0" radius="150.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="0.0" AnchorPane.leftAnchor="150.0" />
-            <ImageView fitHeight="265.0" fitWidth="225.0" layoutX="202.0" layoutY="157.0" onMousePressed="#onListening" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="myImageView" fitHeight="265.0" fitWidth="225.0" layoutX="202.0" layoutY="157.0" onMousePressed="#onListening" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@duck1.png" />
                </image>
