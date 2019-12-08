@@ -1,5 +1,5 @@
-# hackatum_rubberduck 
-#This program was written during a hackathon in TUM.
+# hackatum_rubberduck : This program was written during a hackathon in TUM.
+
 Instruction for setting up the JavaFx:
   1. Download JavaFx:
     http://gluonhq.com/download/javafx-13.0.1-sdk-windows/
